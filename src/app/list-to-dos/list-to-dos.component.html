@@ -1,0 +1,35 @@
+<!-- <p>
+  list-to-dos works!
+</p> -->
+<h1>My Todo's</h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+
+<div class="container">
+  <table class="table">
+    <!-- <caption> My Todo's </caption> -->
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Target Date</th>
+        <th>Is Completed?</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <!-- for (todo todo: todos) { -->
+      <tr *ngFor="let todo of todos">
+        <td>{{todo.description}}</td>
+        <td>{{todo.targetDate | date |uppercase}}</td>
+        <td>{{todo.done}}</td>
+        <td> <button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+        <td> <button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+      </tr>
+      <!-- }-->
+    </tbody>
+  </table>
+  <button (click)="addNewToDo()" class="btn btn-success">Add New toDo</button>
+</div>
